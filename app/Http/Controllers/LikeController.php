@@ -8,6 +8,16 @@ use App\Reply;
 
 class LikeController extends Controller
 {
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('JWT');
+    }
+
     public function like(Reply $reply)
     {
         $reply->like()->create([
